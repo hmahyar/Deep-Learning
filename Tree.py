@@ -26,18 +26,36 @@ class BinaryTree(object):
         else:
             self.binery_insert(node,tree[2])
 
+class binaryHeap(object):
+    def __init__(self):
+        self.heapList= [0]
     
+    def sync_tree(self,tree_len):
+        while tree_len>0:
+            print 'Check',tree_len,' ',(tree_len)//2
+            if self.heapList[tree_len]<self.heapList[(tree_len)//2]:
+                self.heapList[tree_len],self.heapList[(tree_len)//2]=self.heapList[(tree_len)//2],self.heapList[tree_len]
+                print 'Swap'
+            tree_len = (tree_len//2)
 
+    def insert(self,node):
+        self.heapList.append(node)
+        print self.heapList
+        self.sync_tree(len(self.heapList)-1)
+        
+    def print_tree(self):
+        print self.heapList
 T = BinaryTree(5)
-T.binery_insert(3,T.tree)
-T.binery_insert(7,T.tree)
-T.binery_insert(1,T.tree)
-T.binery_insert(2,T.tree)
-T.binery_insert(6,T.tree)
-T.binery_insert(9,T.tree)
-T.binery_insert(8,T.tree)
-T.binery_insert(10,T.tree)
-T.binery_insert(4,T.tree)
-T.traverse_tree(T.tree)
+for i in [3,7,1,2,6,9,8,10,4]:
+    T.binery_insert(i,T.tree)
+#T.traverse_tree(T.tree)
+
+B = binaryHeap()
+for i in [7,3,1,2,6,9,8,10,4]:
+    B.insert(i)
+    B.print_tree()
+    print ('-----')
+
+
 
 
