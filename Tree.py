@@ -45,6 +45,15 @@ class binaryHeap(object):
         
     def print_tree(self):
         print self.heapList
+
+    def max(self,i=1):
+        if i*2<len(self.heapList)-1:
+            return self.max(i*2)
+        else:
+            if self.heapList[i]>self.heapList[i+1]:
+                return self.heapList[i]
+            else:
+                return self.heapList[i+1]
 T = BinaryTree(5)
 for i in [3,7,1,2,6,9,8,10,4]:
     T.binery_insert(i,T.tree)
@@ -55,6 +64,8 @@ for i in [7,3,1,2,6,9,8,10,4]:
     B.insert(i)
     B.print_tree()
     print ('-----')
+
+print B.max(1)
 
 
 
