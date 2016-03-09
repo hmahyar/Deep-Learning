@@ -3,14 +3,13 @@ class BinaryTree(object):
     def __init__(self,rootnode):
         self.tree=[rootnode,[],[]]
 
-    def traverse_tree(self,tree):
+    def sort(self,tree):
         if tree:
-            
             if tree[1]:
-                self.traverse_tree(tree[1])
+                self.sort(tree[1])
             print (tree[0])
             if tree[2]:
-                self.traverse_tree(tree[2])
+                self.sort(tree[2])
             
     
     def binery_insert(self,node,tree):
@@ -39,11 +38,11 @@ class BinaryTree(object):
             return tree[0] 
 
 T = BinaryTree(5)
-for i in [3,7,1,2,6,9,8,10,4]:
+for i in [3,7,1,2,16,20,6,9,8,10,12,15,11,19,3]:
     T.binery_insert(i,T.tree)
-#T.traverse_tree(T.tree)
-print 'max: ',T.max(T.tree)
-print 'min: ',T.min(T.tree)
+#print T.sort(T.tree)
+print 'Max: ',T.max(T.tree)
+print 'Min: ',T.min(T.tree)
 
 
 
