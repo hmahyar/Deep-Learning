@@ -32,10 +32,10 @@ class BinaryTree(object):
             return tree[0] 
     
     def min(self,tree):
-        if tree[1]:
-            return self.min(tree[1])
+        if tree[2]:
+            return self.min(tree[0])
         else:
-            return tree[0] 
+            return tree[1] 
 
 T = BinaryTree(5)
 for i in [3,7,1,2,16,20,6,9,8,10,12,15,11,19,3]:
